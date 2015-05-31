@@ -261,3 +261,4 @@ $ npm test
 # License
 
 MIT © [Fahad Ibnay Heylaal](http://fahad19.com)
+
