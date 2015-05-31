@@ -279,7 +279,10 @@ Select only a number of fields:
 
 ```
 posts.find('all', {
-
+  fields: [
+    'id',
+    'title'
+  ]
 });
 ```
 
@@ -306,7 +309,7 @@ posts.find('all', {
 
 # Testing
 
-Tests are written with [mocha](http://visionmedia.github.com/mocha/), and can be run via npm:
+Tests are written with [mocha](http://mochajs.org/), and can be run via npm:
 
 ```
 $ npm test

@@ -438,7 +438,10 @@ export default class Mysql extends Adapter {
 //
 // ```
 // posts.find('all', {
-//
+//   fields: [
+//     'id',
+//     'title'
+//   ]
 // });
 // ```
 //
