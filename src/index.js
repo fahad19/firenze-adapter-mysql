@@ -6,8 +6,6 @@ import Adapter from 'firenze/lib/Adapter';
 
 // ## MySQL Adapter
 //
-// > MySQL adapter for Firenze.js ORM
-//
 // ### Install
 //
 // ```
