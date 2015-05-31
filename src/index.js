@@ -490,7 +490,7 @@ export default class Mysql extends Adapter {
     return query;
   }
 
-// ## Count
+// ### Count
 //
 // Counts the number of affected records:
 //

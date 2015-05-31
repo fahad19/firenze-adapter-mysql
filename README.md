@@ -34,7 +34,7 @@ $ npm install --save firenze-adapter-mysql
     - [Group](#group)
     - [Fields](#fields)
     - [Limit (pagination)](#limit-pagination)
-  - [Count](#count)
+    - [Count](#count)
 - [Testing](#testing)
 - [License](#license)
 
@@ -306,7 +306,7 @@ posts.find('all', {
 })
 ```
 
-## Count
+### Count
 
 Counts the number of affected records:
 
