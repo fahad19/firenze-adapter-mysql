@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/fahad19/firenze-adapter-mysql.png?branch=master)](http://travis-ci.org/fahad19/firenze-adapter-mysql)
 
-> MySQL adapter for firenze.js
+MySQL adapter for [firenze.js](https://github.com/fahad19/firenze)
 
 Install it with npm:
 
