@@ -30,6 +30,11 @@ $ npm install --save firenze-adapter-mysql
       - [AND](#and)
       - [OR](#or)
       - [NOT](#not)
+    - [Order](#order)
+    - [Group](#group)
+    - [Fields](#fields)
+    - [Limit (pagination)](#limit-pagination)
+  - [Count](#count)
 - [Testing](#testing)
 - [License](#license)
 
@@ -245,6 +250,69 @@ posts.find('all', {
       'Post.published': 1
     }
   }
+});
+```
+
+### Order
+
+For ordering results:
+
+```js
+posts.find('all', {
+  order: {
+    'Post.title': 'asc'
+  }
+});
+```
+
+### Group
+
+For grouping result set:
+
+```js
+posts.find('all', {
+  group: [
+    'column_name'
+  ]
+});
+```
+
+### Fields
+
+Select only a number of fields:
+
+```
+posts.find('all', {
+
+});
+```
+
+### Limit (pagination)
+
+Limit number of results:
+
+```js
+posts.find('all', {
+  limit: 10
+});
+```
+
+If you want to go through paginated results:
+
+```js
+posts.find('all', {
+  limit: 10,
+  page: 2
+})
+```
+
+## Count
+
+Counts the number of affected records:
+
+```js
+posts.find('count', options).then(function (count) {
+  // `count` is an integer here
 });
 ```
 

@@ -394,6 +394,18 @@ export default class Mysql extends Adapter {
     return query;
   }
 
+// ### Order
+//
+// For ordering results:
+//
+// ```js
+// posts.find('all', {
+//   order: {
+//     'Post.title': 'asc'
+//   }
+// });
+// ```
+//
   queryOrder(query, options = {}) {
     let order = _.isObject(options.order) ? options.order : {};
     _.each(order, function (v, k) {
@@ -402,14 +414,36 @@ export default class Mysql extends Adapter {
     return query;
   }
 
+// ### Group
+//
+// For grouping result set:
+//
+// ```js
+// posts.find('all', {
+//   group: [
+//     'column_name'
+//   ]
+// });
+// ```
+//
   queryGroup(query, options = {}) {
     let group = _.isObject(options.group) ? options.group : [];
-    _.each(group, function (v, k) {
-      query.groupBy(k, v);
+    _.each(group, function (v) {
+      query.groupBy(v);
     });
     return query;
   }
 
+// ### Fields
+//
+// Select only a number of fields:
+//
+// ```
+// posts.find('all', {
+//
+// });
+// ```
+//
   queryFields(query, options = {}) {
     let fields = _.isArray(options.fields) ? options.fields : [];
     if (fields.length === 0) {
@@ -422,6 +456,25 @@ export default class Mysql extends Adapter {
     return query;
   }
 
+// ### Limit (pagination)
+//
+// Limit number of results:
+//
+// ```js
+// posts.find('all', {
+//   limit: 10
+// });
+// ```
+//
+// If you want to go through paginated results:
+//
+// ```js
+// posts.find('all', {
+//   limit: 10,
+//   page: 2
+// })
+// ```
+//
   queryLimit(query, options = {}) {
     if (options.limit && options.page) {
       let limit = parseInt(options.limit, 10);
@@ -437,6 +490,16 @@ export default class Mysql extends Adapter {
     return query;
   }
 
+// ## Count
+//
+// Counts the number of affected records:
+//
+// ```js
+// posts.find('count', options).then(function (count) {
+//   // `count` is an integer here
+// });
+// ```
+//
   queryCount(query, options = {}) {
     if (options.count) {
       query.count();
