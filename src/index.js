@@ -262,7 +262,7 @@ export default class Mysql extends Adapter {
     return query;
   }
 
-// ### Complex conditions
+// ## Complex conditions
 //
 // ### equals
 //

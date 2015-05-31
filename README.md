@@ -22,7 +22,7 @@ $ npm install --save firenze-adapter-mysql
     - [all](#all)
     - [list](#list)
     - [count](#count)
-    - [Complex conditions](#complex-conditions)
+  - [Complex conditions](#complex-conditions)
     - [equals](#equals)
     - [in list](#in-list)
     - [comparisons](#comparisons)
@@ -169,7 +169,7 @@ posts.find('count').then(function (count) {
 });
 ```
 
-### Complex conditions
+## Complex conditions
 
 ### equals
 
