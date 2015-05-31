@@ -436,7 +436,7 @@ export default class Mysql extends Adapter {
 //
 // Select only a number of fields:
 //
-// ```
+// ```js
 // posts.find('all', {
 //   fields: [
 //     'id',
