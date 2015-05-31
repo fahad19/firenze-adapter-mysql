@@ -4,15 +4,13 @@ import P from 'firenze/lib/Promise';
 
 import Adapter from 'firenze/lib/Adapter';
 
-// ## MySQL Adapter
-//
-// ### Install
+// ## Install
 //
 // ```
 // $ npm install --save firenze-adapter-mysql
 // ```
 //
-// ### Usage
+// ## Usage
 //
 // You aren't expected to deal with the Adapter directly. Just pass the adapter to Database config when you create an instance.
 //
@@ -34,7 +32,7 @@ import Adapter from 'firenze/lib/Adapter';
 // });
 // ```
 //
-// ### Schema
+// ## Schema
 //
 // When defining a Model's schema, you need to pass option for each column's `type`.
 //
@@ -106,7 +104,7 @@ export default class Mysql extends Adapter {
     return q.insert(obj);
   }
 
-// ### Finders
+// ## Finders
 //
 // Examples below assumes you have an instance of Collection already:
 //
@@ -114,7 +112,7 @@ export default class Mysql extends Adapter {
 // var posts = new Posts();
 // ```
 //
-// #### first
+// ### first
 //
 // Gives you the first matched result:
 //
@@ -129,7 +127,7 @@ export default class Mysql extends Adapter {
 // });
 // ```
 //
-// #### all
+// ### all
 //
 // Gives you all matched results:
 //
@@ -144,7 +142,7 @@ export default class Mysql extends Adapter {
 //   });
 // });
 // ```
-// #### list
+// ### list
 //
 // Gives you a list of key/value paired object of matched results:
 //
@@ -165,7 +163,7 @@ export default class Mysql extends Adapter {
 // });
 // ```
 //
-// #### count
+// ### count
 //
 // Gives you the total count of matched results:
 //
@@ -266,7 +264,7 @@ export default class Mysql extends Adapter {
 
 // ### Complex conditions
 //
-// #### equals
+// ### equals
 //
 // ```js
 // posts.find('all', {
@@ -276,7 +274,7 @@ export default class Mysql extends Adapter {
 // });
 // ```
 //
-// #### in list
+// ### in list
 //
 // ```js
 // posts.find('all', {
@@ -290,7 +288,7 @@ export default class Mysql extends Adapter {
 // });
 // ```
 //
-// #### comparisons
+// ### comparisons
 //
 // ```js
 // posts.find('all', {
@@ -308,7 +306,7 @@ export default class Mysql extends Adapter {
 // * less than or equal to `ModelAlias.field <=`
 // * not equal to `ModelAlias.field !=`
 //
-// #### AND
+// ### AND
 //
 // ```js
 // posts.find('all', {
@@ -320,7 +318,7 @@ export default class Mysql extends Adapter {
 // });
 // ```
 //
-// #### OR
+// ### OR
 //
 // ```js
 // posts.find('all', {
@@ -332,7 +330,7 @@ export default class Mysql extends Adapter {
 // });
 // ```
 //
-// #### NOT
+// ### NOT
 //
 // ```js
 // posts.find('all', {
@@ -394,7 +392,7 @@ export default class Mysql extends Adapter {
     return query;
   }
 
-// ### Order
+// ## Order
 //
 // For ordering results:
 //
@@ -414,7 +412,7 @@ export default class Mysql extends Adapter {
     return query;
   }
 
-// ### Group
+// ## Group
 //
 // For grouping result set:
 //
@@ -434,7 +432,7 @@ export default class Mysql extends Adapter {
     return query;
   }
 
-// ### Fields
+// ## Fields
 //
 // Select only a number of fields:
 //
@@ -456,7 +454,7 @@ export default class Mysql extends Adapter {
     return query;
   }
 
-// ### Limit (pagination)
+// ## Limit (pagination)
 //
 // Limit number of results:
 //
@@ -490,16 +488,6 @@ export default class Mysql extends Adapter {
     return query;
   }
 
-// ### Count
-//
-// Counts the number of affected records:
-//
-// ```js
-// posts.find('count', options).then(function (count) {
-//   // `count` is an integer here
-// });
-// ```
-//
   queryCount(query, options = {}) {
     if (options.count) {
       query.count();

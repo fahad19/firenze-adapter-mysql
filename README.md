@@ -14,42 +14,38 @@ $ npm install --save firenze-adapter-mysql
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Contents
 
-  - [MySQL Adapter](#mysql-adapter)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Schema](#schema)
-    - [Finders](#finders)
-      - [first](#first)
-      - [all](#all)
-      - [list](#list)
-      - [count](#count)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Schema](#schema)
+  - [Finders](#finders)
+    - [first](#first)
+    - [all](#all)
+    - [list](#list)
+    - [count](#count)
     - [Complex conditions](#complex-conditions)
-      - [equals](#equals)
-      - [in list](#in-list)
-      - [comparisons](#comparisons)
-      - [AND](#and)
-      - [OR](#or)
-      - [NOT](#not)
-    - [Order](#order)
-    - [Group](#group)
-    - [Fields](#fields)
-    - [Limit (pagination)](#limit-pagination)
-    - [Count](#count)
+    - [equals](#equals)
+    - [in list](#in-list)
+    - [comparisons](#comparisons)
+    - [AND](#and)
+    - [OR](#or)
+    - [NOT](#not)
+  - [Order](#order)
+  - [Group](#group)
+  - [Fields](#fields)
+  - [Limit (pagination)](#limit-pagination)
 - [Testing](#testing)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 <!--docume:src/index.js-->
-## MySQL Adapter
-
-### Install
+## Install
 
 ```
 $ npm install --save firenze-adapter-mysql
 ```
 
-### Usage
+## Usage
 
 You aren't expected to deal with the Adapter directly. Just pass the adapter to Database config when you create an instance.
 
@@ -71,7 +67,7 @@ var db = new Database({
 });
 ```
 
-### Schema
+## Schema
 
 When defining a Model's schema, you need to pass option for each column's `type`.
 
@@ -104,7 +100,7 @@ var Post = db.createModelClass({
 });
 ```
 
-### Finders
+## Finders
 
 Examples below assumes you have an instance of Collection already:
 
@@ -112,7 +108,7 @@ Examples below assumes you have an instance of Collection already:
 var posts = new Posts();
 ```
 
-#### first
+### first
 
 Gives you the first matched result:
 
@@ -127,7 +123,7 @@ posts.find('first', {
 });
 ```
 
-#### all
+### all
 
 Gives you all matched results:
 
@@ -142,7 +138,7 @@ posts.find('all', {
   });
 });
 ```
-#### list
+### list
 
 Gives you a list of key/value paired object of matched results:
 
@@ -163,7 +159,7 @@ posts.find('list', {
 });
 ```
 
-#### count
+### count
 
 Gives you the total count of matched results:
 
@@ -175,7 +171,7 @@ posts.find('count').then(function (count) {
 
 ### Complex conditions
 
-#### equals
+### equals
 
 ```js
 posts.find('all', {
@@ -185,7 +181,7 @@ posts.find('all', {
 });
 ```
 
-#### in list
+### in list
 
 ```js
 posts.find('all', {
@@ -199,7 +195,7 @@ posts.find('all', {
 });
 ```
 
-#### comparisons
+### comparisons
 
 ```js
 posts.find('all', {
@@ -217,7 +213,7 @@ Example comparisons that you can try:
 * less than or equal to `ModelAlias.field <=`
 * not equal to `ModelAlias.field !=`
 
-#### AND
+### AND
 
 ```js
 posts.find('all', {
@@ -229,7 +225,7 @@ posts.find('all', {
 });
 ```
 
-#### OR
+### OR
 
 ```js
 posts.find('all', {
@@ -241,7 +237,7 @@ posts.find('all', {
 });
 ```
 
-#### NOT
+### NOT
 
 ```js
 posts.find('all', {
@@ -253,7 +249,7 @@ posts.find('all', {
 });
 ```
 
-### Order
+## Order
 
 For ordering results:
 
@@ -265,7 +261,7 @@ posts.find('all', {
 });
 ```
 
-### Group
+## Group
 
 For grouping result set:
 
@@ -277,7 +273,7 @@ posts.find('all', {
 });
 ```
 
-### Fields
+## Fields
 
 Select only a number of fields:
 
@@ -287,7 +283,7 @@ posts.find('all', {
 });
 ```
 
-### Limit (pagination)
+## Limit (pagination)
 
 Limit number of results:
 
@@ -304,16 +300,6 @@ posts.find('all', {
   limit: 10,
   page: 2
 })
-```
-
-### Count
-
-Counts the number of affected records:
-
-```js
-posts.find('count', options).then(function (count) {
-  // `count` is an integer here
-});
 ```
 
 <!--/docume:src/index.js-->
