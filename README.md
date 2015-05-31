@@ -28,6 +28,7 @@ $ npm install --save firenze-adapter-mysql
       - [AND](#and)
       - [OR](#or)
       - [NOT](#not)
+- [Testing](#testing)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -246,6 +247,14 @@ posts.find('all', {
 ```
 
 <!--/docume:src/index.js-->
+
+# Testing
+
+Tests are written with [mocha](http://visionmedia.github.com/mocha/), and can be run via npm:
+
+```
+$ npm test
+```
 
 # License
 
