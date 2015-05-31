@@ -277,7 +277,7 @@ posts.find('all', {
 
 Select only a number of fields:
 
-```
+```js
 posts.find('all', {
   fields: [
     'id',
