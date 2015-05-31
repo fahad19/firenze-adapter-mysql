@@ -1,7 +1,7 @@
 {
   "name": "firenze-adapter-mysql",
   "version": "0.1.0",
-  "description": "MySQL adapter for Firenze.js ORM",
+  "description": "MySQL adapter for firenze.js ORM",
   "main": "index.js",
   "scripts": {
     "babel": "babel src --out-dir lib",
@@ -32,13 +32,13 @@
   },
   "homepage": "https://github.com/fahad19/firenze-adapter-mysql",
   "dependencies": {
-    "firenze": "~0.1.0",
+    "firenze": "~0.1.1",
     "knex": "~0.8.3",
     "lodash": "~3.7.0",
     "mysql": "~2.6.2"
   },
   "peerDependencies": {
-    "firenze": "~0.1.0"
+    "firenze": "~0.1.1"
   },
   "devDependencies": {
     "babel": "^5.1.10",
