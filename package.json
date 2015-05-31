@@ -7,8 +7,8 @@
     "babel": "babel src --out-dir lib",
     "babel:watch": "babel --watch src --out-dir lib",
     "lint": "eslint src",
-    "test": "mocha $(find lib/test/cases -name '*.js')",
-    "test-travis": "npm run babel && npm run test",
+    "mocha": "mocha $(find lib/test/cases -name '*.js')",
+    "test": "run-scripts lint babel mocha",
     "doctoc": "doctoc README.md --github --title '# Contents'",
     "docume": "docume README.md",
     "docs": "npm run docume && npm run doctoc"
@@ -48,6 +48,7 @@
     "docume": "^0.1.4",
     "eslint": "^0.20.0",
     "mocha": "^2.2.4",
+    "run-scripts": "^0.2.2",
     "should": "^6.0.1",
     "should-promised": "^0.2.1"
   }

@@ -6,7 +6,7 @@ before_script:
 node_js:
   - '0.10'
 
-script: "npm run test-travis"
+script: "npm run test"
 
 notifications:
   email: false
