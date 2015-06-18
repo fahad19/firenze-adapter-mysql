@@ -57,6 +57,7 @@ var MysqlAdapter = require('firenze-adapter-mysql');
 var db = new Database({
   adapter: MysqlAdapter,
   host: '127.0.0.1',
+  port: 3306,
   database: 'my_database',
   user: '',
   password: '',
