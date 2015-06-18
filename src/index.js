@@ -22,6 +22,7 @@ import Adapter from 'firenze/lib/Adapter';
 // var db = new Database({
 //   adapter: MysqlAdapter,
 //   host: '127.0.0.1',
+//   port: 3306,
 //   database: 'my_database',
 //   user: '',
 //   password: '',
@@ -75,6 +76,7 @@ export default class Mysql extends Adapter {
       client: 'mysql',
       connection: _.pick(this.options, [
         'host',
+        'port',
         'user',
         'password',
         'database',
