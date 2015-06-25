@@ -9,6 +9,9 @@
     "lint": "eslint src",
     "mocha": "mocha $(find lib/test/cases -name '*.js')",
     "test": "run-scripts lint babel mocha",
+    "istanbul": "istanbul cover ./node_modules/mocha/bin/_mocha $(find lib/test/cases -name '*.js')",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "coverage": "run-scripts istanbul coveralls",
     "doctoc": "doctoc README.md --github --title '# Contents'",
     "docume": "docume README.md",
     "docs": "npm run docume && npm run doctoc"
@@ -41,12 +44,14 @@
     "firenze": "~0.1.4"
   },
   "devDependencies": {
-    "firenze": "~0.1.4",
     "babel": "^5.1.10",
     "babel-eslint": "^3.0.1",
+    "coveralls": "^2.11.2",
     "doctoc": "^0.13.0",
     "docume": "^0.1.4",
     "eslint": "^0.20.0",
+    "firenze": "~0.1.4",
+    "istanbul": "^0.3.16",
     "mocha": "^2.2.4",
     "run-scripts": "^0.2.2",
     "should": "^6.0.1",
