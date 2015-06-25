@@ -33,15 +33,15 @@
   },
   "homepage": "https://github.com/fahad19/firenze-adapter-mysql",
   "dependencies": {
-    "firenze": "~0.1.1",
     "knex": "~0.8.3",
     "lodash": "~3.7.0",
     "mysql": "~2.6.2"
   },
   "peerDependencies": {
-    "firenze": "~0.1.1"
+    "firenze": "~0.1.4"
   },
   "devDependencies": {
+    "firenze": "~0.1.4",
     "babel": "^5.1.10",
     "babel-eslint": "^3.0.1",
     "doctoc": "^0.13.0",
