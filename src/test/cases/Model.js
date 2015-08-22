@@ -68,31 +68,29 @@ describe('Model', function () {
     post.fetch().then(function (model) {
       model.set('title', 'Hello Universe');
       model.save().then(function (m) {
-        // m.get('title').should.eql('Hello Universe');
+        m.get('title').should.eql('Hello Universe');
         done();
-      }).catch(function (error) {
-        console.log('error', error);
       });
     });
   });
 
-  // it('should update particular field', function (done) {
-  //   var posts = new this.Posts();
-  //   var post = posts.model({id: 1});
-  //   post.fetch().then(function (model) {
-  //     model.saveField('title', 'Hello Universe').then(function (m) {
-  //       m.get('title').should.eql('Hello Universe');
-  //       done();
-  //     });
-  //   });
-  // });
+  it('should update particular field', function (done) {
+    var posts = new this.Posts();
+    var post = posts.model({id: 1});
+    post.fetch().then(function (model) {
+      model.saveField('title', 'Hello Universe').then(function (m) {
+        m.get('title').should.eql('Hello Universe');
+        done();
+      });
+    });
+  });
 
-  // it('should delete a record', function (done) {
-  //   var posts = new this.Posts();
-  //   var post = posts.model({id: 2});
-  //   post.delete().then(function (affectedRows) {
-  //     affectedRows.should.eql(1);
-  //     done();
-  //   });
-  // });
+  it('should delete a record', function (done) {
+    var posts = new this.Posts();
+    var post = posts.model({id: 2});
+    post.delete().then(function (affectedRows) {
+      affectedRows.should.eql(1);
+      done();
+    });
+  });
 });

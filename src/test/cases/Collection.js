@@ -288,8 +288,6 @@ describe('Collection', function () {
     }).then(function (count) {
       count.should.equal(2);
       done();
-    }).catch(function(error) {
-      throw error;
     });
   });
 });

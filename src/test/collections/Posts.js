@@ -30,12 +30,8 @@ module.exports = function (db) {
       }
     },
 
-    collectionClass: function () {
-      return require('../collections/Posts')(db);
-    },
-
-    afterDelete: function () {
-      this.set('_field', 'afterDelete');
+    afterDelete: function (model) {
+      model.set('_field', 'afterDelete');
       return new P.resolve(true);
     },
 
