@@ -35,7 +35,7 @@ import Adapter from 'firenze/lib/Adapter';
 //
 // ## Schema
 //
-// When defining a Model's schema, you need to pass option for each column's `type`.
+// When defining a Collection's schema, you need to pass option for each column's `type`.
 //
 // Here are the supported types from this adapter:
 //
@@ -57,7 +57,7 @@ import Adapter from 'firenze/lib/Adapter';
 // Example:
 //
 // ```js
-// var Post = db.createModelClass({
+// var Posts = db.createCollectionClass({
 //   schema: {
 //     id: {
 //       type: 'increments'
@@ -95,11 +95,10 @@ export default class Mysql extends Adapter {
     return this.knex;
   }
 
-  closeConnection(cb = null) {
-    if (!cb) {
-      cb = function () { };
-    }
-    return this.getConnection().destroy(cb);
+  closeConnection() {
+    return new P((resolve) => {
+      this.getConnection().destroy(resolve);
+    });
   }
 
   create(q, obj) {
@@ -187,9 +186,9 @@ export default class Mysql extends Adapter {
     return q.del();
   }
 
-  dropTable(model) {
+  dropTable(collection) {
     let connection = this.getConnection();
-    let table = model.collection().table;
+    let table = collection.table;
 
     return new P(function (resolve, reject) {
       connection.schema.dropTableIfExists(table)
@@ -202,13 +201,13 @@ export default class Mysql extends Adapter {
     });
   }
 
-  createTable(model) {
+  createTable(collection) {
     let connection = this.getConnection();
-    let table = model.collection().table;
+    let table = collection.table;
 
     return new P(function (resolve, reject) {
       connection.schema.createTable(table, function (t) {
-        _.each(model.schema, function (column, name) {
+        _.each(collection.schema, function (column, name) {
           t[column.type](name);
         });
       })
@@ -221,9 +220,9 @@ export default class Mysql extends Adapter {
     });
   }
 
-  populateTable(model, rows) {
+  populateTable(collection, rows) {
     let connection = this.getConnection();
-    let table = model.collection().table;
+    let table = collection.table;
 
     return new P(function (resolve, reject) {
       connection(table).insert(rows)
@@ -238,7 +237,7 @@ export default class Mysql extends Adapter {
 
   query(collection, options = {}) {
     let exp = collection.table;
-    let alias = collection.model().alias;
+    let alias = collection.alias;
     if ((_.isUndefined(options.alias) || options.alias) && alias) {
       exp += ' as ' + alias;
     }

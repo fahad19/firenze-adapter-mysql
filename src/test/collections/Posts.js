@@ -1,9 +1,44 @@
+/* eslint-disable new-cap */
+var P = require('firenze').Promise;
+
 module.exports = function (db) {
   return db.createCollectionClass({
     table: 'posts',
 
-    modelClass: function () {
-      return require('../models/Post')(db);
-    }
+    alias: 'Post',
+
+    displayField: 'title',
+
+    schema: {
+      id: {
+        type: 'increments'
+      },
+      author_id: { //eslint-disable-line
+        type: 'integer'
+      },
+      title: {
+        type: 'string'
+      },
+      body: {
+        type: 'text'
+      },
+      views: {
+        type: 'integer'
+      },
+      note: {
+        type: 'string'
+      }
+    },
+
+    collectionClass: function () {
+      return require('../collections/Posts')(db);
+    },
+
+    afterDelete: function () {
+      this.set('_field', 'afterDelete');
+      return new P.resolve(true);
+    },
+
+    modelClass: require('../models/Post')
   });
 };

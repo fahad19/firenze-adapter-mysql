@@ -9,12 +9,11 @@ describe('Collection', function () {
   before(function (done) {
     this.db = new lib.Database(config);
     this.Posts = require('../collections/Posts')(this.db);
-    this.Post = require('../models/Post')(this.db);
     this.postsData = require('../fixtures/posts');
 
     this.db.getAdapter().loadAllFixtures([
       {
-        model: new this.Post(),
+        collection: new this.Posts(),
         rows: this.postsData
       }
     ]).then(function () {
@@ -25,7 +24,7 @@ describe('Collection', function () {
   });
 
   after(function (done) {
-    this.db.close(done);
+    this.db.close().then(done);
   });
 
   it('should find all results', function (done) {
