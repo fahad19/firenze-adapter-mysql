@@ -70,7 +70,7 @@ var db = new Database({
 
 ## Schema
 
-When defining a Model's schema, you need to pass option for each column's `type`.
+When defining a Collection's schema, you need to pass option for each column's `type`.
 
 Here are the supported types from this adapter:
 
@@ -92,7 +92,7 @@ Here are the supported types from this adapter:
 Example:
 
 ```js
-var Post = db.createModelClass({
+var Posts = db.createCollectionClass({
   schema: {
     id: {
       type: 'increments'
