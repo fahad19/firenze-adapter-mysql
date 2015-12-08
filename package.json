@@ -1,20 +1,13 @@
 {
   "name": "firenze-adapter-mysql",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "MySQL adapter for firenze.js ORM",
   "main": "index.js",
   "scripts": {
     "babel": "babel src --out-dir lib",
-    "babel:watch": "babel --watch src --out-dir lib",
-    "lint": "eslint src",
-    "mocha": "mocha $(find lib/test/cases -name '*.js')",
-    "test": "run-scripts lint babel mocha",
-    "istanbul": "istanbul cover ./node_modules/mocha/bin/_mocha $(find lib/test/cases -name '*.js')",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "coverage": "run-scripts istanbul coveralls",
-    "doctoc": "doctoc README.md --github --title '# Contents'",
-    "docume": "docume README.md",
-    "docs": "npm run docume && npm run doctoc"
+    "lint": "eslint index.js src test",
+    "mocha": "mocha --require ./test/setup.js --compilers js:babel-register node_modules/firenze/test/cases/**/*.js",
+    "test": "run-scripts lint babel mocha"
   },
   "repository": {
     "type": "git",
@@ -36,25 +29,23 @@
   },
   "homepage": "https://github.com/fahad19/firenze-adapter-mysql",
   "dependencies": {
-    "knex": "~0.8.3",
-    "lodash": "~3.7.0",
-    "mysql": "~2.6.2"
+    "knex": "~0.9.0",
+    "lodash": "~3.10.0",
+    "mysql": "~2.9.0"
   },
   "peerDependencies": {
-    "firenze": "~0.2.1"
+    "firenze": "~0.3.0"
   },
   "devDependencies": {
-    "babel": "^5.1.10",
-    "babel-eslint": "^3.0.1",
-    "coveralls": "^2.11.2",
-    "doctoc": "^0.13.0",
-    "docume": "^0.1.4",
-    "eslint": "^0.20.0",
-    "firenze": "~0.2.1",
-    "istanbul": "^0.3.16",
-    "mocha": "^2.2.4",
-    "run-scripts": "^0.2.2",
-    "should": "^6.0.1",
-    "should-promised": "^0.2.1"
+    "babel": "~6.3.13",
+    "babel-cli": "~6.3.15",
+    "babel-eslint": "~5.0.0-beta4",
+    "babel-preset-es2015": "~6.3.13",
+    "babel-preset-stage-0": "~6.3.13",
+    "babel-register": "~6.3.13",
+    "eslint": "~1.10.3",
+    "firenze": "~0.3.0",
+    "mocha": "~2.3.4",
+    "run-scripts": "~0.4.0"
   }
 }

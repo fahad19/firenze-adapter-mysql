@@ -4,10 +4,10 @@ before_script:
   - mysql -e 'create database firenze;'
 
 node_js:
-  - '0.10'
-  - 'iojs'
+  - 'stable'
+  - '0.12'
 
-script: "npm run test && npm run coverage"
+script: "npm test"
 
 notifications:
   email: false
