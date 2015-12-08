@@ -1,4 +1,4 @@
-import makeAdapter from 'firenze/src/adapters/Sql/makeAdapter';
+import makeAdapter from 'firenze/lib/adapters/Sql/makeAdapter';
 
 import makeConnection from './makeConnection';
 import Query from './Query';
