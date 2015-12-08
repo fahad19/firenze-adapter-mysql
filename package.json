@@ -6,8 +6,10 @@
   "scripts": {
     "babel": "babel src --out-dir lib",
     "lint": "eslint index.js src test",
-    "mocha": "mocha --require ./test/setup.js --compilers js:babel-register ./node_modules/firenze/test/cases/**/*.js",
-    "test": "run-scripts lint babel mocha"
+    "test:babel": "babel node_modules/firenze/test --out-dir node_modules/firenze/_test",
+    "test:deps": "cd ./node_modules/firenze && npm install",
+    "mocha": "mocha --require ./test/setup.js --compilers js:babel-register node_modules/firenze/_test/cases/*.js",
+    "test": "run-scripts lint babel test:babel test:deps mocha"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,8 @@
     "eslint": "~1.10.3",
     "firenze": "~0.3.0",
     "mocha": "~2.3.4",
-    "run-scripts": "~0.4.0"
+    "run-scripts": "~0.4.0",
+    "should": "~8.0.0",
+    "should-promised": "~0.3.1"
   }
 }
