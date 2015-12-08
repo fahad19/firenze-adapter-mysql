@@ -6,7 +6,7 @@
   "scripts": {
     "babel": "babel src --out-dir lib",
     "lint": "eslint index.js src test",
-    "mocha": "mocha --require ./test/setup.js --compilers js:babel-register node_modules/firenze/test/cases/**/*.js",
+    "mocha": "mocha --require ./test/setup.js --compilers js:babel-register ./node_modules/firenze/test/cases/**/*.js",
     "test": "run-scripts lint babel mocha"
   },
   "repository": {
