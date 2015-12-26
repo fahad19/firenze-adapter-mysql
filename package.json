@@ -36,7 +36,7 @@
     "mysql": "~2.9.0"
   },
   "peerDependencies": {
-    "firenze": "~0.3.0"
+    "firenze": "^0.4.0"
   },
   "devDependencies": {
     "babel": "~6.3.13",
@@ -46,7 +46,7 @@
     "babel-preset-stage-0": "~6.3.13",
     "babel-register": "~6.3.13",
     "eslint": "~1.10.3",
-    "firenze": "~0.3.0",
+    "firenze": "^0.4.0",
     "mocha": "~2.3.4",
     "run-scripts": "~0.4.0",
     "should": "~8.0.0",
